@@ -27,3 +27,9 @@ Deno.test("vertical island with a bottom right branch", () => {
   ];
   assertEquals(findMaxIsland(land), 6);
 });
+
+Deno.test("very large vertical island", () => {
+  const size = 10000;
+  const land = Array.from({ length: size }, () => [1]);
+  assertEquals(findMaxIsland(land), size);
+});

@@ -5,23 +5,24 @@ export function findMaxIsland(land: number[][]) {
   const cols = land[0]?.length ?? 0;
 
   function exploreIsland(x: number, y: number): number {
-    if (
-      x < 0 ||
-      y < 0 ||
-      x >= rows ||
-      y >= cols ||
-      land[x][y] === 0 ||
-      visited.has(`${x},${y}`)
-    )
-      return 0;
-    visited.add(`${x},${y}`);
-    return (
-      1 +
-      exploreIsland(x + 1, y) +
-      exploreIsland(x - 1, y) +
-      exploreIsland(x, y + 1) +
-      exploreIsland(x, y - 1)
-    );
+    let size = 0;
+    const stack: [number, number][] = [[x, y]];
+    while (stack.length) {
+      const [cx, cy] = stack.pop()!;
+      if (
+        cx < 0 ||
+        cy < 0 ||
+        cx >= rows ||
+        cy >= cols ||
+        land[cx][cy] === 0 ||
+        visited.has(`${cx},${cy}`)
+      )
+        continue;
+      visited.add(`${cx},${cy}`);
+      size++;
+      stack.push([cx + 1, cy], [cx - 1, cy], [cx, cy + 1], [cx, cy - 1]);
+    }
+    return size;
   }
 
   for (let x = 0; x < rows; x++) {
