@@ -33,3 +33,15 @@ Deno.test("very large vertical island", () => {
   const land = Array.from({ length: size }, () => [1]);
   assertEquals(findMaxIsland(land), size);
 });
+
+Deno.test("huge square island", () => {
+  const size = 1000;
+  const land = Array.from({ length: size }, () => Array(size).fill(1));
+  assertEquals(findMaxIsland(land), size * size);
+});
+
+Deno.test("huge vertical island", () => {
+  const size = 100000;
+  const land = Array.from({ length: size }, () => [1]);
+  assertEquals(findMaxIsland(land), size);
+});
