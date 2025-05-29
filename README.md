@@ -1,5 +1,7 @@
 # find-max-island
 
+![CI](https://github.com/brian-gates/find-max-island/actions/workflows/test.yml/badge.svg) 
+
 Find the size of the largest connected group of 1s (an "island") in a 2D grid.
 
 ## Usage
@@ -25,7 +27,3 @@ console.log(findMaxIsland(land)) // 6
 ```sh
 deno test
 ```
-
-## CI Status
-
-![CI](https://github.com/brian-gates/find-max-island/actions/workflows/test.yml/badge.svg) 
