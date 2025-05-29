@@ -1,5 +1,7 @@
 # find-max-island
 
+This implementation avoids stack overflow by using an explicit stack for island exploration instead of recursion.
+
 ![CI](https://github.com/brian-gates/find-max-island/actions/workflows/test.yml/badge.svg) 
 
 Find the size of the largest connected group of 1s (an "island") in a 2D grid.
